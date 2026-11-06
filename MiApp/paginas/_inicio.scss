@@ -1,0 +1,56 @@
+// ============================================================
+//  paginas/_inicio.scss — Pantalla Inicio (atajos y galerías)
+// ============================================================
+@use "../mixins" as m;
+@use "../variables" as v;
+
+// ---- Atajos: se usan como "tarjeta atajo" (fondo y hover vienen de .tarjeta) ----
+.atajo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: v.$alto-control;
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-texto);
+
+  &__icono {
+    flex-shrink: 0;
+    width: v.$alto-control;
+    height: v.$alto-control;
+
+    // Un color por atajo, definido en _variables.scss
+    @each $nombre, $color in v.$atajos {
+      &--#{$nombre} {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+// ---- Galerías de imágenes (figure + figcaption) ----
+.galeria {
+  &__imagen {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover; // recorta sin deformar
+    border-radius: v.$radio-tarjeta;
+    transition: transform 0.25s ease;
+  }
+
+  &__elemento {
+    margin: 0;
+
+    &:hover .galeria__imagen {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__pie {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: var(--color-texto-suave);
+  }
+}

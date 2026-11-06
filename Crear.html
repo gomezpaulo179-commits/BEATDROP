@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: sube tu música o tu podcast.">
+    <title>BEATDROP - Crear</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace" href="Inicio.html">Inicio</a></li>
+                <li><a class="menu__enlace" href="Buscador.html">Buscador</a></li>
+                <li><a class="menu__enlace" href="Biblioteca.html">Biblioteca</a></li>
+                <li><a class="menu__enlace menu__enlace--activo" href="Crear.html" aria-current="page">Crear</a></li>
+                <li><a class="menu__enlace" href="Perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <header>
+            <h1 class="pagina__titulo">Crear</h1>
+        </header>
+
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <label class="tarjeta subida" id="zona-musica">
+                    <span class="subida__titulo">Subir música</span>
+                    <span class="subida__texto" id="texto-musica">Arrastra un archivo o explora</span>
+                    <input class="visually-hidden" type="file" id="input-musica" accept="audio/*">
+                </label>
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="tarjeta subida" id="zona-podcast">
+                    <span class="subida__titulo">Subir podcast</span>
+                    <span class="subida__texto" id="texto-podcast">Arrastra un archivo o explora</span>
+                    <input class="visually-hidden" type="file" id="input-podcast" accept="audio/*">
+                </label>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/crear.js"></script>
+</body>
+</html>

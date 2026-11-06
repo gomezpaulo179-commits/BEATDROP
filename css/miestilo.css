@@ -1,0 +1,238 @@
+@charset "UTF-8";
+/* ---------- Colores de cada tema ---------- */
+/* Modo oscuro */
+:root,
+[data-theme=dark] {
+  --fondo: #1A1025;
+  --fondo-menu: #140C1E;
+  --tarjeta: #2E1F4D;
+  --tarjeta-hover: #3A2862;
+  --texto: #F1ECF9;
+  --texto-suave: #A79BD1;
+  --borde: #3C3489;
+  --acento: #7F77DD;
+}
+
+/* Modo claro */
+[data-theme=light] {
+  --fondo: #F6F3FB;
+  --fondo-menu: #FFFFFF;
+  --tarjeta: #E4DCF3;
+  --tarjeta-hover: #D6CBEC;
+  --texto: #1A1025;
+  --texto-suave: #6B5E8C;
+  --borde: #C9BFE6;
+  --acento: #7F77DD;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* La página ocupa toda la ventana del navegador */
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Roboto, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ---------- Menú superior ---------- */
+.menu-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 64px;
+  padding: 0 40px;
+  background: var(--fondo-menu);
+  border-bottom: 1px solid var(--borde);
+  transition: background 0.3s;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--acento);
+  text-decoration: none;
+}
+
+.menu-superior ul {
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-superior a {
+  font-size: 15px;
+  color: var(--texto-suave);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu-superior a:hover {
+  color: var(--texto);
+}
+
+.menu-superior a.activo {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.menu-superior a:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* ---------- Contenido central ---------- */
+.pantalla {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.cabecera h1 {
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.pantalla h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.pantalla {
+  max-width: 1000px;
+}
+
+.menu-atajos {
+  margin-bottom: 48px;
+}
+.menu-atajos ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu-atajos li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 68px;
+  overflow: hidden;
+  background: var(--tarjeta);
+  border-radius: 12px;
+  color: var(--texto);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.menu-atajos li:hover {
+  background: var(--tarjeta-hover);
+}
+
+.icono {
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.icono-podcast {
+  background: #7F77DD;
+}
+
+.icono-mix-diario {
+  background: #AFA9EC;
+}
+
+.icono-cursos {
+  background: #534AB7;
+}
+
+.icono-favoritos {
+  background: #3C3489;
+}
+
+.seccion-sugerencias {
+  margin-bottom: 48px;
+}
+
+.galeria-sugerencias,
+.galeria-podcast {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.galeria-sugerencias li,
+.galeria-podcast li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 180px;
+}
+.galeria-sugerencias img,
+.galeria-podcast img {
+  display: block;
+  width: 180px;
+  height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+.galeria-sugerencias p,
+.galeria-podcast p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--texto-suave);
+}
+
+/* ---------- Pantallas pequeñas (móvil) ---------- */
+@media (max-width: 640px) {
+  .menu-superior {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .menu-superior ul {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pantalla {
+    padding: 32px 16px;
+  }
+  .menu-atajos ul {
+    grid-template-columns: 1fr;
+  }
+  .galeria-sugerencias li,
+  .galeria-podcast li,
+  .galeria-sugerencias img,
+  .galeria-podcast img {
+    width: 140px;
+  }
+  .galeria-sugerencias img,
+  .galeria-podcast img {
+    height: 190px;
+  }
+}/*# sourceMappingURL=miestilo.css.map */

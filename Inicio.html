@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: música y podcasts. Pantalla de inicio.">
+    <title>BEATDROP - Inicio</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace menu__enlace--activo" href="Inicio.html" aria-current="page">Inicio</a></li>
+                <li><a class="menu__enlace" href="Buscador.html">Buscador</a></li>
+                <li><a class="menu__enlace" href="Biblioteca.html">Biblioteca</a></li>
+                <li><a class="menu__enlace" href="Crear.html">Crear</a></li>
+                <li><a class="menu__enlace" href="Perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <header>
+            <h1 class="pagina__titulo">Inicio</h1>
+        </header>
+
+        <div class="mb-5">
+            <ul class="row row-cols-1 row-cols-md-2 g-3 list-unstyled m-0">
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--podcast" aria-hidden="true"></span>
+                        Podcast
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--mix-diario" aria-hidden="true"></span>
+                        Mix diario
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--cursos" aria-hidden="true"></span>
+                        Cursos
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--favoritos" aria-hidden="true"></span>
+                        Favoritos
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <section class="mb-5" aria-labelledby="titulo-sugerencias">
+            <h2 class="pagina__subtitulo" id="titulo-sugerencias">Sugerencias de cantantes y álbumes</h2>
+            <ul class="row row-cols-2 row-cols-md-3 g-4 list-unstyled m-0">
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="img/lil-sanz.jpeg" alt="Lil Sanz" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Lil Sanz</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="img/imagen2.jpg" alt="Omar Courtz" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Omar Courtz</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="img/imagen3.jpg" alt="Doble Porcion" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Doble Porcion</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="titulo-podcast">
+            <h2 class="pagina__subtitulo" id="titulo-podcast">Podcast</h2>
+            <ul class="row row-cols-2 row-cols-md-3 g-4 list-unstyled m-0">
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="https://i.pinimg.com/1200x/34/04/4a/34044a8e5a555eee24ac917a4b0a488a.jpg" alt="Podcast X" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Podcast X</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="https://i.pinimg.com/736x/fb/43/74/fb43743f6d3f72090707eb8fee554f35.jpg" alt="Podcast Y" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Podcast Y</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

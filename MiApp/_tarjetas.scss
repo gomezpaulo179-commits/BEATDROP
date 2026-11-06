@@ -1,0 +1,11 @@
+// ============================================================
+//  _tarjetas.scss — Superficies reutilizables (bloque .tarjeta)
+// ============================================================
+@use "mixins" as m;
+@use "variables" as v;
+
+.tarjeta {
+  background-color: var(--color-tarjeta);
+  border-radius: v.$radio-tarjeta;
+  @include m.interactiva;
+}

@@ -1,0 +1,15 @@
+// 1. Configura tus variables personalizadas (Opcional)
+$primary: #0d6efd;
+
+$dark-colors: (
+  "body-bg": #121212,
+  "body-color": #f4f4f4
+);
+
+// 2. Importación desde tu carpeta local (Ajusta los puntos "../" según la profundidad de tu archivo)
+@import "../scss/bootstrap.scss";
+
+// 3. Tus estilos personalizados adicionales
+#theme-toggle {
+  transition: all 0.2s ease-in-out;
+}

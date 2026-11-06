@@ -1,0 +1,181 @@
+/* ---------- Biblioteca (estilos propios; la barra y los colores vienen de css/miestilo.css) ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+/* ---------- Botones ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover { background: var(--tarjeta-hover); color: var(--texto); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary .plus { font-size: 20px; line-height: 1; font-weight: 300; }
+
+.btn-ghost {
+  background: none;
+  border: none;
+  color: var(--texto-suave);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-ghost:hover { color: var(--texto); background: var(--tarjeta); }
+
+/* ---------- Pestañas ---------- */
+.tabs {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+  margin-bottom: 26px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--texto-suave);
+  font-family: inherit;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.tab:hover { color: var(--texto); }
+.tab.active { color: var(--texto); font-weight: 700; }
+
+/* ---------- Grid de playlists ---------- */
+.grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 163px;
+  background: var(--tarjeta);
+  border-radius: 12px;
+  padding: 14px 14px 18px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  animation: fadeIn 0.3s ease;
+}
+
+.card:hover { background: var(--tarjeta-hover); transform: translateY(-2px); }
+
+.cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 15px;
+  color: var(--texto-suave);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-state {
+  margin-top: 40px;
+  color: var(--texto-suave);
+  font-size: 16px;
+}
+
+/* ---------- Modal ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 18, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.overlay.open { display: flex; }
+
+.modal {
+  background: var(--tarjeta);
+  border-radius: 14px;
+  padding: 28px;
+  width: 380px;
+  max-width: 90vw;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  color: var(--texto);
+}
+
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+
+.field label { font-size: 14px; color: var(--texto-suave); }
+
+.field input {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus { border-color: var(--acento); }
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .topbar h1 { font-size: 26px; }
+  .card { width: 140px; }
+}

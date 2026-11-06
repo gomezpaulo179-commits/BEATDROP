@@ -1,0 +1,24 @@
+// ============================================================
+//  _tema.scss — Modo claro / oscuro y estilos base del documento
+//  El tema se controla con el atributo data-bs-theme (Bootstrap 5.3)
+// ============================================================
+@use "mixins" as m;
+
+// Oscuro por defecto; el atributo del <html> puede cambiarlo
+:root,
+[data-bs-theme="dark"] {
+  @include m.tokens-tema("dark");
+}
+
+[data-bs-theme="light"] {
+  @include m.tokens-tema("light");
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: Roboto, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}

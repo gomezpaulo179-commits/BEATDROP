@@ -1,0 +1,41 @@
+// ============================================================
+//  paginas/_perfil.scss — Pantalla Perfil (avatar y ajustes)
+// ============================================================
+@use "../mixins" as m;
+@use "../variables" as v;
+
+.perfil {
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 96px;
+    height: 106px;
+    border-radius: 48px;
+    background-color: var(--color-acento);
+
+    span {
+      font-size: 36px;
+      font-weight: 600;
+      color: #F1ECF9;
+    }
+  }
+
+  &__nombre {
+    margin: 16px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-texto);
+    text-align: center;
+  }
+
+  &__ajustes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+}
