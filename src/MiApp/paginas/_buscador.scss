@@ -1,0 +1,51 @@
+// ============================================================
+//  paginas/_buscador.scss — Pantalla Buscador
+// ============================================================
+@use "../mixins" as m;
+@use "../variables" as v;
+
+.buscador {
+  &__campo {
+    width: 100%;
+    height: v.$alto-control;
+    padding: 0 24px;
+    border: 0;
+    border-radius: v.$radio-tarjeta;
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    font-family: inherit;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::placeholder {
+      color: var(--color-texto-suave);
+      opacity: 1;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-acento);
+      outline-offset: 2px;
+    }
+  }
+
+  // Botón "Escuchar y reconocer": icono a la izquierda + texto
+  &__audio {
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__icono-audio {
+    flex-shrink: 0;
+    width: v.$alto-control;
+    height: v.$alto-control;
+    background-color: var(--color-acento);
+  }
+}

@@ -1,0 +1,60 @@
+// ============================================================
+//  _variables.scss — Paleta de marca, temas y medidas comunes
+// ============================================================
+
+// ---- Paleta de marca (morados) ----
+$morado:          #7F77DD;
+$morado-claro:    #AFA9EC;
+$morado-medio:    #534AB7;
+$morado-oscuro:   #3C3489;
+
+// ---- Medidas ----
+$radio-tarjeta:   12px;
+$radio-boton:     8px;
+$alto-control:    68px;
+$punto-movil:     640px;
+
+// ---- Tokens de cada tema (se convierten en variables CSS) ----
+// Los contrastes texto/fondo cumplen WCAG AA (>= 4.5:1).
+$temas: (
+  "dark": (
+    fondo:         #1A1025,
+    fondo-menu:    #140C1E,
+    tarjeta:       #2E1F4D,
+    tarjeta-hover: #3A2862,
+    texto:         #F1ECF9,
+    texto-suave:   #A79BD1,
+    borde:         $morado-oscuro,
+    acento:        $morado,
+    texto-acento:  #140C1E,
+  ),
+  "light": (
+    fondo:         #F6F3FB,
+    fondo-menu:    #FFFFFF,
+    tarjeta:       #E4DCF3,
+    tarjeta-hover: #D6CBEC,
+    texto:         #1A1025,
+    texto-suave:   #5A4D7A,
+    borde:         #C9BFE6,
+    acento:        $morado,
+    texto-acento:  #140C1E,
+  ),
+);
+
+// ---- Atajos de la pantalla Inicio (color de cada icono) ----
+$atajos: (
+  "podcast":     $morado,
+  "mix-diario":  $morado-claro,
+  "cursos":      $morado-medio,
+  "favoritos":   $morado-oscuro,
+);
+
+// ---- Portadas de playlist (degradados) ----
+$portadas: (
+  "1": linear-gradient(160deg, #f5d000 0%, #e0352b 55%, #1d1d1d 100%),
+  "2": linear-gradient(160deg, #6b4a2b 0%, #2c2118 100%),
+  "3": linear-gradient(160deg, #8a8a8a 0%, #1f1f1f 100%),
+  "4": linear-gradient(160deg, #f2ead8 0%, #c4442f 100%),
+  "5": linear-gradient(160deg, #3d7cf0 0%, #d6246e 100%),
+  "6": linear-gradient(160deg, #f7c5d4 0%, #1a1a1a 100%),
+);

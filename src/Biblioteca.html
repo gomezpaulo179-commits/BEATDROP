@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: tu biblioteca de playlists, artistas, podcasts y favoritos.">
+    <title>BEATDROP - Biblioteca</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace" href="Inicio.html">Inicio</a></li>
+                <li><a class="menu__enlace" href="Buscador.html">Buscador</a></li>
+                <li><a class="menu__enlace menu__enlace--activo" href="Biblioteca.html" aria-current="page">Biblioteca</a></li>
+                <li><a class="menu__enlace" href="Crear.html">Crear</a></li>
+                <li><a class="menu__enlace" href="Perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h1 class="pagina__titulo mb-0">Biblioteca</h1>
+            <button class="boton boton--primario" id="abrir-dialogo" type="button">
+                <span class="boton__icono" aria-hidden="true">+</span> Nueva playlist
+            </button>
+        </header>
+
+        <div class="pestanas" role="tablist" aria-label="Categorías de la biblioteca">
+            <button class="pestanas__pestana" role="tab" id="tab-playlist" aria-controls="panel-biblioteca" aria-selected="true" data-categoria="playlist" type="button">Playlist</button>
+            <button class="pestanas__pestana" role="tab" id="tab-artistas" aria-controls="panel-biblioteca" aria-selected="false" data-categoria="artistas" type="button">Artistas</button>
+            <button class="pestanas__pestana" role="tab" id="tab-podcast" aria-controls="panel-biblioteca" aria-selected="false" data-categoria="podcast" type="button">Podcast</button>
+            <button class="pestanas__pestana" role="tab" id="tab-favoritos" aria-controls="panel-biblioteca" aria-selected="false" data-categoria="favoritos" type="button">Favoritos</button>
+        </div>
+
+        <div id="panel-biblioteca" role="tabpanel" aria-labelledby="tab-playlist">
+            <ul class="row row-cols-2 row-cols-md-4 g-4 list-unstyled m-0" id="lista-playlists"></ul>
+            <p class="vacio" id="mensaje-vacio" hidden></p>
+        </div>
+    </main>
+
+    <dialog class="dialogo" id="dialogo-playlist" aria-labelledby="titulo-dialogo">
+        <h2 class="dialogo__titulo" id="titulo-dialogo">Nueva playlist</h2>
+        <form id="formulario-playlist">
+            <div class="dialogo__campo">
+                <label for="nombre-playlist">Nombre</label>
+                <input type="text" id="nombre-playlist" name="nombre" placeholder="Mi playlist" maxlength="40" autocomplete="off" required>
+            </div>
+            <div class="dialogo__acciones">
+                <button class="boton boton--fantasma" type="button" data-cerrar>Cancelar</button>
+                <button class="boton boton--primario" type="submit" id="boton-crear" disabled>Crear</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="js/biblioteca.js"></script>
+</body>
+</html>

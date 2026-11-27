@@ -1,0 +1,288 @@
+// ============================================================
+//  paginas/_inicio.scss — Pantalla Inicio (atajos y galerías)
+// ============================================================
+@use "../mixins" as m;
+@use "../variables" as v;
+
+// ---- Atajos: se usan como "tarjeta atajo" (fondo y hover vienen de .tarjeta) ----
+.atajo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: v.$alto-control;
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-texto);
+
+  &__icono {
+    flex-shrink: 0;
+    width: v.$alto-control;
+    height: v.$alto-control;
+
+    // Un color por atajo, definido en _variables.scss
+    @each $nombre, $color in v.$atajos {
+      &--#{$nombre} {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+// ---- Galerías de imágenes (figure + figcaption) ----
+.galeria {
+  &__imagen {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover; // recorta sin deformar
+    border-radius: v.$radio-tarjeta;
+    transition: transform 0.25s ease;
+  }
+
+  &__elemento {
+    margin: 0;
+
+    &:hover .galeria__imagen {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__pie {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: var(--color-texto-suave);
+  }
+}
+
+// ---- Tarjeta que abre un vídeo: se ve igual, solo cambia el cursor ----
+.galeria__elemento--video {
+  cursor: pointer;
+}
+
+// ---- Reproductor a pantalla completa (estilo "Reproduciendo" de Spotify) ----
+.reproductor {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+
+  &::backdrop {
+    background-color: #000;
+  }
+
+  // Al abrirse, el foco va al propio reproductor (sin recuadro en ningún botón)
+  &:focus {
+    outline: none;
+  }
+
+  // Entra deslizándose desde abajo, como en Spotify
+  &[open] {
+    animation: reproductor-subir 0.35s ease;
+  }
+
+  // El vídeo ocupa toda la pantalla
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  // Capa encima del vídeo: degradado oscuro arriba y abajo para que se lea el texto
+  &__capa {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px clamp(20px, 5vw, 64px) 36px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 22%, transparent 50%, rgba(0, 0, 0, 0.9) 100%);
+    pointer-events: none; // los clics pasan al vídeo...
+
+    > * {
+      pointer-events: auto; // ...salvo en la cabecera y el panel
+    }
+  }
+
+  &__cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__origen {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__hueco {
+    width: 44px; // equilibra el botón de cerrar para centrar el texto
+  }
+
+  &__panel {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__titulo {
+    margin: 0;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__artista {
+    margin: 4px 0 22px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  // Barra de progreso: la parte reproducida en blanco, el resto gris
+  &__barra {
+    --progreso: 0%;
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 0;
+    border-radius: 2px;
+    background: linear-gradient(to right, #fff var(--progreso), rgba(255, 255, 255, 0.3) var(--progreso));
+    appearance: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      appearance: none;
+    }
+
+    &::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border: 0;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+
+  &__tiempos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 14px;
+  }
+
+  &__icono,
+  &__play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.2s ease, color 0.2s ease;
+
+    &:active {
+      transform: scale(0.94);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-acento);
+      outline-offset: 3px;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  &__icono {
+    width: 44px;
+    height: 44px;
+    background: none;
+    color: #fff;
+    opacity: 0.85;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    // Botón "repetir" encendido
+    &[aria-pressed="true"] {
+      color: var(--color-acento);
+      opacity: 1;
+    }
+  }
+
+  &__play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    // Por defecto se ve "pausa"; si el vídeo está parado, se ve "play"
+    .icono-play {
+      display: none;
+    }
+
+    &--pausado {
+      .icono-play {
+        display: block;
+        margin-left: 3px;
+      }
+
+      .icono-pausa {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes reproductor-subir {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

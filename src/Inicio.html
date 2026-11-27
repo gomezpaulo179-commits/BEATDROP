@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: música y podcasts. Pantalla de inicio.">
+    <title>BEATDROP - Inicio</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+    <script src="js/sonido.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace menu__enlace--activo" href="Inicio.html" aria-current="page">Inicio</a></li>
+                <li><a class="menu__enlace" href="Buscador.html">Buscador</a></li>
+                <li><a class="menu__enlace" href="Biblioteca.html">Biblioteca</a></li>
+                <li><a class="menu__enlace" href="Crear.html">Crear</a></li>
+                <li><a class="menu__enlace" href="Perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <header>
+            <h1 class="pagina__titulo">Inicio</h1>
+        </header>
+
+        <div class="mb-5">
+            <ul class="row row-cols-1 row-cols-md-2 g-3 list-unstyled m-0">
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--podcast" aria-hidden="true"></span>
+                        Podcast
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--mix-diario" aria-hidden="true"></span>
+                        Mix diario
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--cursos" aria-hidden="true"></span>
+                        Cursos
+                    </div>
+                </li>
+                <li class="col">
+                    <div class="tarjeta atajo">
+                        <span class="atajo__icono atajo__icono--favoritos" aria-hidden="true"></span>
+                        Favoritos
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <section class="mb-5" aria-labelledby="titulo-sugerencias">
+            <h2 class="pagina__subtitulo" id="titulo-sugerencias">Sugerencias de cantantes y álbumes</h2>
+            <ul class="row row-cols-2 row-cols-md-3 g-4 list-unstyled m-0">
+                <li class="col">
+                    <figure class="galeria__elemento galeria__elemento--video" id="abrir-video">
+                        <img class="galeria__imagen" src="media/img/LilSanx.webp" alt="Lil Sanz" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Lil Sanz</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="media/img/OmarCourtz.webp" alt="Omar Courtz" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Omar Courtz</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="media/img/DoblePorcion.webp" alt="Doble Porción" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Doble Porción</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="titulo-podcast">
+            <h2 class="pagina__subtitulo" id="titulo-podcast">Podcast</h2>
+            <ul class="row row-cols-2 row-cols-md-3 g-4 list-unstyled m-0">
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="media/img/imagen_podcast.webp" alt="Podcast X" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Podcast X</figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="galeria__elemento">
+                        <img class="galeria__imagen" src="media/img/imagen_podcast2.webp" alt="Podcast Y" width="180" height="240" loading="lazy">
+                        <figcaption class="galeria__pie">Podcast Y</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Reproductor a pantalla completa (estilo "Reproduciendo" de Spotify) -->
+    <dialog class="reproductor" id="dialogo-video" aria-labelledby="titulo-video" tabindex="-1">
+        <video class="reproductor__video" id="video-lilsanz" playsinline preload="metadata">
+            <source src="media/video/lil-sanz-720p.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este vídeo.
+        </video>
+
+        <div class="reproductor__capa">
+            <div class="reproductor__cabecera">
+                <button class="reproductor__icono" type="button" data-cerrar aria-label="Cerrar reproductor">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 8.3a1 1 0 0 1 1.4 0L12 13.6l5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.4z"/></svg>
+                </button>
+                <span class="reproductor__origen">Sugerencias de cantantes</span>
+                <span class="reproductor__hueco" aria-hidden="true"></span>
+            </div>
+
+            <div class="reproductor__panel">
+                <h2 class="reproductor__titulo" id="titulo-video">Lil Sanz</h2>
+                <p class="reproductor__artista">Vídeo</p>
+
+                <input class="reproductor__barra" id="barra-progreso" type="range" min="0" max="100" step="0.1" value="0" aria-label="Progreso del vídeo">
+                <div class="reproductor__tiempos">
+                    <span id="tiempo-actual">0:00</span>
+                    <span id="tiempo-total">0:00</span>
+                </div>
+
+                <div class="reproductor__controles">
+                    <button class="reproductor__icono" id="boton-reiniciar" type="button" aria-label="Volver al principio">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5a1 1 0 0 1 1 1v12a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm13 .8v12.4a1 1 0 0 1-1.5.8L9 13a1.2 1.2 0 0 1 0-2l8.5-5.9a1 1 0 0 1 1.5.7z"/></svg>
+                    </button>
+                    <button class="reproductor__play" id="boton-play" type="button" aria-label="Pausar">
+                        <svg class="icono-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.1v13.8a1 1 0 0 0 1.5.9l10.8-6.9a1 1 0 0 0 0-1.8L9.5 4.2A1 1 0 0 0 8 5.1z"/></svg>
+                        <svg class="icono-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm7 0h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg>
+                    </button>
+                    <button class="reproductor__icono" id="boton-repetir" type="button" aria-label="Repetir" aria-pressed="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2.6a1 1 0 0 1 1.4 0l2.7 2.7a1 1 0 0 1 0 1.4l-2.7 2.7a1 1 0 0 1-1.4-1.4l1-1H7a3 3 0 0 0-3 3v1a1 1 0 1 1-2 0v-1a5 5 0 0 1 5-5h11l-1-1a1 1 0 0 1 0-1.4zM21 12a1 1 0 0 1 1 1v1a5 5 0 0 1-5 5H6l1 1a1 1 0 1 1-1.4 1.4l-2.7-2.7a1 1 0 0 1 0-1.4l2.7-2.7A1 1 0 1 1 7 15.4l-1 1h11a3 3 0 0 0 3-3v-1a1 1 0 0 1 1-1z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="js/inicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+// ============================================================
+//  paginas/_crear.scss — Pantalla Crear (zonas de subida)
+// ============================================================
+@use "../mixins" as m;
+@use "../variables" as v;
+
+// Se usa como "tarjeta subida" (fondo, radio y hover vienen de .tarjeta)
+.subida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 137px;
+  padding: 24px;
+  border: 2px dashed transparent;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+
+  &__titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-texto);
+  }
+
+  &__texto {
+    font-size: 15px;
+    color: var(--color-texto-suave);
+    word-break: break-all;
+  }
+
+  // Al arrastrar un archivo sobre la zona
+  &--arrastrando {
+    border-color: var(--color-acento);
+    background-color: var(--color-tarjeta-hover);
+  }
+
+  // El input real queda oculto visualmente pero sigue enfocable con teclado
+  &:focus-within {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,42 @@
+// ============================================================
+//  _mixins.scss — Funciones reutilizables
+// ============================================================
+@use "sass:map";
+@use "variables" as v;
+
+// Vuelca los tokens de un tema como variables CSS (--color-*)
+@mixin tokens-tema($tema) {
+  @each $clave, $valor in map.get(v.$temas, $tema) {
+    --color-#{$clave}: #{$valor};
+  }
+}
+
+// Anillo de foco visible para teclado (accesibilidad)
+@mixin foco {
+  &:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+}
+
+// Respuesta para móvil
+@mixin movil {
+  @media (max-width: #{v.$punto-movil}) {
+    @content;
+  }
+}
+
+// Superficie interactiva: cambio de fondo al pasar el ratón y pulsación
+@mixin interactiva {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+
+  &:hover {
+    background-color: var(--color-tarjeta-hover);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @include foco;
+}

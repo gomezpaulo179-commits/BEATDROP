@@ -1,0 +1,76 @@
+// ============================================================
+//  _botones.scss — Botones (bloque .boton)
+// ============================================================
+@use "mixins" as m;
+@use "variables" as v;
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: v.$radio-boton;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s, transform 0.1s;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  @include m.foco;
+
+  // Acción principal
+  &--primario {
+    background-color: var(--color-acento);
+    color: var(--color-texto-acento);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-tarjeta-hover);
+      color: var(--color-texto);
+    }
+  }
+
+  // Acción secundaria discreta
+  &--fantasma {
+    background: none;
+    color: var(--color-texto-suave);
+
+    &:hover {
+      background-color: var(--color-tarjeta);
+      color: var(--color-texto);
+    }
+  }
+
+  // Botón grande de lista (ajustes, filtros de Buscador)
+  &--bloque {
+    width: 100%;
+    height: v.$alto-control;
+    padding: 0 24px;
+    border-radius: v.$radio-tarjeta;
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+
+    &:hover {
+      background-color: var(--color-tarjeta-hover);
+    }
+  }
+}
+
+// Símbolo "+" de los botones de creación
+.boton__icono {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+}

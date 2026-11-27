@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: perfil de Paulo y ajustes de la cuenta.">
+    <title>BEATDROP - Perfil</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace" href="Inicio.html">Inicio</a></li>
+                <li><a class="menu__enlace" href="Buscador.html">Buscador</a></li>
+                <li><a class="menu__enlace" href="Biblioteca.html">Biblioteca</a></li>
+                <li><a class="menu__enlace" href="Crear.html">Crear</a></li>
+                <li><a class="menu__enlace menu__enlace--activo" href="Perfil.html" aria-current="page">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina pagina--estrecha d-flex flex-column">
+        <div class="perfil__avatar" aria-hidden="true">
+            <span>P</span>
+        </div>
+
+        <header>
+            <h1 class="perfil__nombre">Paulo</h1>
+        </header>
+
+        <ul class="perfil__ajustes">
+            <li><button class="boton boton--bloque" type="button">Ajustes de perfil</button></li>
+            <li><button class="boton boton--bloque" type="button">Ajustes de cuenta</button></li>
+            <li><button class="boton boton--bloque" type="button">Notificaciones</button></li>
+            <li><button class="boton boton--bloque" id="boton-tema" type="button">Modo claro</button></li>
+            <li><button class="boton boton--bloque" type="button">Cerrar sesión</button></li>
+        </ul>
+    </main>
+</body>
+</html>

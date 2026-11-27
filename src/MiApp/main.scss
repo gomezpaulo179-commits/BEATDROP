@@ -1,0 +1,19 @@
+// ============================================================
+//  main.scss — Punto de entrada de BEATDROP
+//  Compilar:  sass sass/main.scss css/main.css --style=compressed --no-source-map
+//  Orden: Bootstrap → tokens → base → componentes → páginas
+// ============================================================
+@use "../scss/bootstrap";
+
+@use "variables";
+@use "mixins";
+@use "tema";
+@use "layout";
+@use "menu";
+@use "botones";
+@use "tarjetas";
+@use "paginas/inicio";
+@use "paginas/buscador";
+@use "paginas/biblioteca";
+@use "paginas/crear";
+@use "paginas/perfil";

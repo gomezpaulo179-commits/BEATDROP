@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEATDROP: busca artistas, álbumes y podcasts.">
+    <title>BEATDROP - Buscador</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/tema.js"></script>
+</head>
+<body>
+    <header class="menu">
+        <a class="menu__logo" href="Inicio.html">BEATDROP</a>
+        <nav aria-label="Principal">
+            <ul class="menu__lista">
+                <li><a class="menu__enlace" href="Inicio.html">Inicio</a></li>
+                <li><a class="menu__enlace menu__enlace--activo" href="Buscador.html" aria-current="page">Buscador</a></li>
+                <li><a class="menu__enlace" href="Biblioteca.html">Biblioteca</a></li>
+                <li><a class="menu__enlace" href="Crear.html">Crear</a></li>
+                <li><a class="menu__enlace" href="Perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <header>
+            <h1 class="pagina__titulo">Buscador</h1>
+        </header>
+
+        <form class="mb-5" role="search" id="formulario-busqueda">
+            <label class="visually-hidden" for="campo-busqueda">Artistas, álbumes, podcasts</label>
+            <input class="form-control buscador__campo" id="campo-busqueda" type="search" name="q"
+                   placeholder="Artistas, álbumes, podcasts…">
+            <button class="visually-hidden" type="submit">Buscar</button>
+        </form>
+
+        <section class="mb-5" aria-labelledby="titulo-audio">
+            <h2 class="pagina__subtitulo" id="titulo-audio">Buscar por audio</h2>
+            <button class="boton boton--bloque buscador__audio" type="button">
+                <span class="buscador__icono-audio" aria-hidden="true"></span>
+                <span>Escuchar y reconocer</span>
+            </button>
+        </section>
+
+        <section aria-labelledby="titulo-filtros">
+            <h2 class="pagina__subtitulo" id="titulo-filtros">Filtrar por</h2>
+            <ul class="d-flex flex-wrap gap-3 list-unstyled m-0">
+                <li><button class="boton tarjeta" type="button">Género</button></li>
+                <li><button class="boton tarjeta" type="button">Año</button></li>
+                <li><button class="boton tarjeta" type="button">Estado de ánimo</button></li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="js/buscador.js"></script>
+</body>
+</html>
